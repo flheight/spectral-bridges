@@ -8,14 +8,14 @@ dim = ['h=8', 'h=16', 'h=32', 'h=64', 'h=784 (full)']
 # Adjusted Rand Index (ARI) Scores
 km_ari = [0.3625, 0.3661, 0.3726, 0.3821, 0.3665]
 em_ari = [0.4587, 0.4974, 0.4799, 0.4440, 0.1850]
-wc_ari = [0.3951, 0.4943, 0.4823, 0.5092, 0.4297]
+wc_ari = [0.3951, 0.4943, 0.4823, 0.5092, 0.5205]
 git_ari = [0.3598, 0.4422, 0.2850, 0.2200, 0.2959]
 sb_ari = [0.5985, 0.6876, 0.7213, 0.7069, 0.6619]
 
 # Normalized Mutual Information (NMI) Scores
 km_nmi = [0.4750, 0.4890, 0.4957, 0.5036, 0.4915]
 em_nmi = [0.5921, 0.6424, 0.6318, 0.5958, 0.3252]
-wc_nmi = [0.5137, 0.6462, 0.6631, 0.6724, 0.6129]
+wc_nmi = [0.5137, 0.6462, 0.6631, 0.6724, 0.6798]
 git_nmi = [0.4647, 0.5463, 0.4228, 0.3275, 0.4235]
 sb_nmi = [0.6709, 0.7627, 0.7960, 0.7854, 0.7628]
 
@@ -24,6 +24,7 @@ colors = {
     'KM': ('blue', 'lightblue'),
     'EM': ('green', 'lightgreen'),
     'WC': ('red', 'lightcoral'),
+    'GIT': ('orange', 'lightyellow'),
     'SB': ('purple', 'plum')
 }
 
@@ -35,9 +36,9 @@ def get_bar_color(score, max_score, method):
 fig = make_subplots(rows=1, cols=2)
 
 # Methods and their corresponding scores
-methods = ['KM', 'EM', 'WC', 'SB']
-ari_scores = [km_ari, em_ari, wc_ari, sb_ari]
-nmi_scores = [km_nmi, em_nmi, wc_nmi, sb_nmi]
+methods = ['KM', 'EM', 'WC', 'GIT', 'SB']
+ari_scores = [km_ari, em_ari, wc_ari, git_ari, sb_ari]
+nmi_scores = [km_nmi, em_nmi, wc_nmi, git_nmi, sb_nmi]
 
 # Plot bars for each method for ARI scores
 for i, (method, score) in enumerate(zip(methods, ari_scores)):
