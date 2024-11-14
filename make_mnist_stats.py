@@ -4,6 +4,7 @@ from spectralbridges import SpectralBridges
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.mixture import GaussianMixture
+from sklearn.datasets import fetch_openml
 
 def evaluate_clustering(X, y, algorithm, n_clusters, n_iterations):
     indices = np.random.choice(X.shape[0], 20000, replace=False)
@@ -46,8 +47,9 @@ def evaluate_clustering(X, y, algorithm, n_clusters, n_iterations):
 np.random.seed(0)
 
 # Load data
-data = np.genfromtxt('datasets/mnist_train.csv', delimiter=',')[1:]
-X, y = data[:, 1:], data[:, 0]
+mnist = fetch_openml('mnist_784', version=1)
+X = mnist.data
+y = mnist.target
 #X = PCA(n_components=64, random_state=42).fit_transform(X)
 
 n_clusters = 10
