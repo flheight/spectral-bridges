@@ -35,9 +35,9 @@ def get_bar_color(score, max_score, method):
 fig = make_subplots(rows=1, cols=2)
 
 # Methods and their corresponding scores
-methods = ['KM', 'EM', 'WC', 'SB']
-ari_scores = [km_ari, em_ari, wc_ari, sb_ari]
-nmi_scores = [km_nmi, em_nmi, wc_nmi, sb_nmi]
+methods = ['KM', 'EM', 'WC', 'GIT', 'SB']
+ari_scores = [km_ari, em_ari, wc_ari, git_ari, sb_ari]
+nmi_scores = [km_nmi, em_nmi, wc_nmi, git_nmi, sb_nmi]
 
 # Plot bars for each method for ARI scores
 for i, (method, score) in enumerate(zip(methods, ari_scores)):
