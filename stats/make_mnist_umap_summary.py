@@ -24,6 +24,7 @@ colors = {
     'KM': ('blue', 'lightblue'),
     'EM': ('green', 'lightgreen'),
     'WC': ('red', 'lightcoral'),
+    'GIT': ('orange', 'lightyellow'),
     'SB': ('purple', 'plum')
 }
 
