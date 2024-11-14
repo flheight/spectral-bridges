@@ -9,12 +9,14 @@ dim = ['h=2', 'h=4', 'h=8', 'h=16']
 km_ari = [0.7843, 0.7853, 0.7648, 0.7795]
 em_ari = [0.8009, 0.8368, 0.8565, 0.8469]
 wc_ari = [0.7460, 0.7674, 0.7757, 0.7986]
+git_ari = [0.9316, 0.9269]
 sb_ari = [0.8992, 0.9273, 0.9296, 0.9318]
 
 # Normalized Mutual Information (NMI) Scores
 km_nmi = [0.8471, 0.8524, 0.8374, 0.8471]
 em_nmi = [0.8615, 0.8791, 0.8915, 0.8831]
 wc_nmi = [0.8403, 0.8518, 0.8514, 0.8710]
+git_nmi = [0.9195, 0.9148]
 sb_nmi = [0.9023, 0.9159, 0.9169,0.9202]
 
 # Define colors for each method and their lighter shades
