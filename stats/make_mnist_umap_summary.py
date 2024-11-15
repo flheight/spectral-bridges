@@ -43,7 +43,7 @@ nmi_scores = [km_nmi, em_nmi, wc_nmi, git_nmi, sb_nmi]
 
 # Plot bars for each method for ARI scores
 for i, (method, score) in enumerate(zip(methods, ari_scores)):
-    max_scores = [max(km_ari[i], em_ari[i], wc_ari[i], sb_ari[i]) for i in range(len(dim))]
+    max_scores = [max(km_ari[i], em_ari[i], wc_ari[i], git_ari[i], sb_ari[i]) for i in range(len(dim))]
     fig.add_trace(go.Bar(
         name=method,
         x=dim,
@@ -55,7 +55,7 @@ for i, (method, score) in enumerate(zip(methods, ari_scores)):
 
 # Plot bars for each method for NMI scores
 for i, (method, score) in enumerate(zip(methods, nmi_scores)):
-    max_scores = [max(km_nmi[i], em_nmi[i], wc_nmi[i], sb_nmi[i]) for i in range(len(dim))]
+    max_scores = [max(km_nmi[i], em_nmi[i], wc_nmi[i], git_nmi[i], sb_nmi[i]) for i in range(len(dim))]
     fig.add_trace(go.Bar(
         name=method,
         x=dim,
