@@ -5,8 +5,6 @@ import plotly.io as pio
 # Define the dimensions and scores
 dim = ['h=8', 'h=16', 'h=32', 'h=64', 'h=784 (full)']
 
-# 8, 16, 32, 64 done xcpt git wc and full
-
 # Adjusted Rand Index (ARI) Scores
 km_ari = [0.3661, 0.3701, 0.3794, 0.3740, 0.3665]
 em_ari = [0.4672, 0.5081, 0.4826, 0.4422, 0.1850]
@@ -23,10 +21,10 @@ sb_nmi = [0.6592, 0.7616, 0.7895, 0.7846, 0.7628]
 
 # Define colors for each method and their lighter shades
 colors = {
-    'KM': ('blue', 'lightblue'),
+    'KM': ('deeppink', 'pink'),
     'EM': ('green', 'lightgreen'),
     'WC': ('red', 'lightcoral'),
-    'GIT': ('orange', 'lightyellow'),
+    'GIT': ('royalblue', 'lightblue'),
     'SB': ('purple', 'plum')
 }
 
