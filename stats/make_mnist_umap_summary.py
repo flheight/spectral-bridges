@@ -22,10 +22,10 @@ sb_nmi = [0.9182, 0.9198, 0.9125, 0.9214]
 
 # Define colors for each method and their lighter shades
 colors = {
-    'KM': ('blue', 'lightblue'),
+    'KM': ('deeppink', 'pink'),
     'EM': ('green', 'lightgreen'),
     'WC': ('red', 'lightcoral'),
-    'GIT': ('orange', 'lightyellow'),
+    'GIT': ('royalblue', 'lightblue'),
     'SB': ('purple', 'plum')
 }
 
