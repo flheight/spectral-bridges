@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.cluster import DBSCAN, KMeans, AgglomerativeClustering
 from sklearn.mixture import GaussianMixture
 from spectralbridges import SpectralBridges
+import git
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -47,6 +48,7 @@ results = {
     "KMeans": {},
     "GaussianMixture": {},
     "AgglomerativeClustering": {},
+    "GIT": {},
     "SpectralBridges": {},
 }
 
@@ -67,6 +69,8 @@ for file in files:
     gm_nmi = np.zeros(N)
     agg_ari = np.zeros(N)
     agg_nmi = np.zeros(N)
+    git_ari = np.zeros(N)
+    git_nmi = np.zeros(N)
     sb_ari = np.zeros(N)
     sb_nmi = np.zeros(N)
 
@@ -98,13 +102,19 @@ for file in files:
         agg_ari[i] = adjusted_rand_score(y, y_pred_agg)
         agg_nmi[i] = normalized_mutual_info_score(y, y_pred_agg)
 
+        # GIT Clustering
+        git_clustering = git.GIT(k=40, target_ratio=[1 for _ in range(n_clusters)])
+        y_pred_git = git_clustering.fit_predict(X)
+        git_ari[i] = adjusted_rand_score(y, y_pred_git)
+        git_nmi[i] = normalized_mutual_info_score(y, y_pred_git)
+
         # Spectral-Bridges
         sb = SpectralBridges(
             n_clusters=n_clusters,
             n_nodes=params[file]["SpectralBridges"]["n_nodes"],
             random_state=i,
         )
-        sb.fit(X)
+        sb.fit_select(X)
         y_pred_sb = sb.predict(X)
         sb_ari[i] = adjusted_rand_score(y, y_pred_sb)
         sb_nmi[i] = normalized_mutual_info_score(y, y_pred_sb)
@@ -120,6 +130,8 @@ for file in files:
 
     results["AgglomerativeClustering"][file] = {"ARI": agg_ari, "NMI": agg_nmi}
 
+    results["GIT"][file] = {"ARI": git_ari, "NMI": git_nmi}
+
     results["SpectralBridges"][file] = {"ARI": sb_ari, "NMI": sb_nmi}
 
 # Define files, methods, and metrics
@@ -129,6 +141,7 @@ methods = [
     "KMeans",
     "GaussianMixture",
     "AgglomerativeClustering",
+    "GIT",
     "SpectralBridges",
 ]
 metrics = ["ARI", "NMI"]
@@ -136,9 +149,10 @@ metrics = ["ARI", "NMI"]
 # Define colors for each method
 method_colors = {
     "DBSCAN": "orange",
-    "KMeans": "blue",
+    "KMeans": "deeppink",
     "GaussianMixture": "green",
     "AgglomerativeClustering": "red",
+    "GIT": "royalblue",
     "SpectralBridges": "purple",
 }
 
@@ -148,6 +162,7 @@ method_labels = {
     "KMeans": "KM",
     "GaussianMixture": "EM",
     "AgglomerativeClustering": "WC",
+    "GIT": "GIT",
     "SpectralBridges": "SB",
 }
 
