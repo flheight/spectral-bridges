@@ -11,7 +11,7 @@ import plotly.io as pio
 
 # Function to load data
 def load_data(file_name):
-    data = np.genfromtxt(f"/datasets/{file_name}", delimiter=",")
+    data = np.genfromtxt(f"datasets/{file_name}", delimiter=",")
     X, y = data[:, :-1], data[:, -1]
     return X, y
 
